@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.group.ewaste.mapper.UserLoginMapper">
+    <select id="queryAll" resultType="com.group.ewaste.domain.UserLogin">
+        select * from userlogin
+    </select>
+    <insert id="add" parameterType="com.group.ewaste.domain.UserLogin">
+        insert  into userlogin values (#{username},#{password},#{cellphone},#{email},#{type})
+    </insert>
+    <select id="queryByUsername" resultType="com.group.ewaste.domain.UserLogin">
+        select * from userlogin where username=#{username}
+    </select>
+</mapper>

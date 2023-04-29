@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.group.ewaste.mapper.Device_dataMapper">
+  <resultMap id="BaseResultMap" type="com.group.ewaste.domain.Device_data">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="device_recycle_id" jdbcType="BIGINT" property="deviceRecycleId" />
+    <result column="oss_url" jdbcType="VARCHAR" property="ossUrl" />
+    <result column="access" jdbcType="INTEGER" property="access" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, device_recycle_id, oss_url, `access`, remark
+  </sql>
+  <select id="selectByExample" parameterType="com.group.ewaste.domain.Device_dataExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from device_data
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from device_data
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from device_data
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.group.ewaste.domain.Device_dataExample">
+    delete from device_data
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.group.ewaste.domain.Device_data">
+    insert into device_data (id, device_recycle_id, oss_url, 
+      `access`, remark)
+    values (#{id,jdbcType=BIGINT}, #{deviceRecycleId,jdbcType=BIGINT}, #{ossUrl,jdbcType=VARCHAR}, 
+      #{access,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.group.ewaste.domain.Device_data">
+    insert into device_data
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="deviceRecycleId != null">
+        device_recycle_id,
+      </if>
+      <if test="ossUrl != null">
+        oss_url,
+      </if>
+      <if test="access != null">
+        `access`,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="deviceRecycleId != null">
+        #{deviceRecycleId,jdbcType=BIGINT},
+      </if>
+      <if test="ossUrl != null">
+        #{ossUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="access != null">
+        #{access,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.group.ewaste.domain.Device_dataExample" resultType="java.lang.Long">
+    select count(*) from device_data
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update device_data
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.deviceRecycleId != null">
+        device_recycle_id = #{record.deviceRecycleId,jdbcType=BIGINT},
+      </if>
+      <if test="record.ossUrl != null">
+        oss_url = #{record.ossUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.access != null">
+        `access` = #{record.access,jdbcType=INTEGER},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update device_data
+    set id = #{record.id,jdbcType=BIGINT},
+      device_recycle_id = #{record.deviceRecycleId,jdbcType=BIGINT},
+      oss_url = #{record.ossUrl,jdbcType=VARCHAR},
+      `access` = #{record.access,jdbcType=INTEGER},
+      remark = #{record.remark,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.group.ewaste.domain.Device_data">
+    update device_data
+    <set>
+      <if test="deviceRecycleId != null">
+        device_recycle_id = #{deviceRecycleId,jdbcType=BIGINT},
+      </if>
+      <if test="ossUrl != null">
+        oss_url = #{ossUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="access != null">
+        `access` = #{access,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.group.ewaste.domain.Device_data">
+    update device_data
+    set device_recycle_id = #{deviceRecycleId,jdbcType=BIGINT},
+      oss_url = #{ossUrl,jdbcType=VARCHAR},
+      `access` = #{access,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
