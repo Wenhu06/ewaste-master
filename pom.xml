@@ -210,6 +210,20 @@
             </plugin>
 
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.yml</include>
+                    <include>**/*.xml</include>
+                    <include>**/*.conf</include>
+                </includes>
+            </resource>
+        </resources>
+
+        
     </build>
 
 </project>
