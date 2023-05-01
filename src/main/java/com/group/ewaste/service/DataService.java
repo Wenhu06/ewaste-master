@@ -1,8 +1,10 @@
 package com.group.ewaste.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.xml.crypto.Data;
 import java.io.*;
 import java.util.UUID;
 import java.util.zip.ZipEntry;

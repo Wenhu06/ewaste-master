@@ -1,11 +1,23 @@
 package com.group.ewaste.domain;
 
-public class User {
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
+import java.io.Serializable;
+
+@TableName("user")
+public class User implements Serializable {
+    @TableId(value = "id",type = IdType.AUTO)
     private Long id;
 
     private String username;
 
     private String password;
+
+    @TableField(exist = false)
+    private String oldpassword;
 
     private String cellphone;
 
@@ -59,6 +71,14 @@ public class User {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getOldpassword() {
+        return oldpassword;
+    }
+
+    public void setOldpassword(String oldpassword) {
+        this.oldpassword = oldpassword;
     }
 
     @Override
