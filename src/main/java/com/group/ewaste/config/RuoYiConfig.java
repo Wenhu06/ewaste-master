@@ -41,6 +41,9 @@ public class RuoYiConfig {
      */
     private static boolean addressEnabled;
 
+    private static String fronturl;
+
+
     public String getName() {
         return name;
     }
@@ -79,6 +82,14 @@ public class RuoYiConfig {
 
     public void setProfile(String profile) {
         RuoYiConfig.profile = profile;
+    }
+
+    public static String getFronturl() {
+        return fronturl;
+    }
+
+    public void setFronturl(String fronturl) {
+        RuoYiConfig.fronturl = fronturl;
     }
 
     public static boolean isAddressEnabled() {

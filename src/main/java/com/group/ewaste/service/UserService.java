@@ -13,8 +13,8 @@ public class UserService {
     @Resource
     private UserMapper userMapper;
 
-    public UserBean LoginIn(String username, String password) {
-        return userMapper.getInfo(username,password);
+    public UserBean LoginIn(String username, String password,String type) {
+        return userMapper.getInfo(username,password,type);
     }
 
     public void Insert(String username,String password,String cellphone,String email){

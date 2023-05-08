@@ -14,7 +14,7 @@ import java.util.zip.ZipOutputStream;
     public class DataService {
 
     public void createDir(String email) {
-        String filepath = System.getProperty("user.dir") + "/src/main/resources/file" + "/" + email;
+        String filepath = "/www/wwwroot/upload/" + email;
         File file = new File(filepath);
         if (file.exists() == false) {
             file.mkdirs();
@@ -26,7 +26,7 @@ import java.util.zip.ZipOutputStream;
 
         String filename = file.getOriginalFilename();
         String newname = UUID.randomUUID().toString().replace("-", "") + filename.substring(filename.lastIndexOf("."));
-        String path = System.getProperty("user.dir") + "/src/main/resources/file" + "/" + email;
+        String path = "/www/wwwroot/upload/" + email;
         File newpath = new File(path);
         if (!newpath.exists()) newpath.mkdir();
         try {
@@ -36,7 +36,7 @@ import java.util.zip.ZipOutputStream;
             throw new RuntimeException(e);
         }
 
-        File sourceFile = new File(System.getProperty("user.dir") + "/src/main/resources/file" + "/" + email);
+        File sourceFile = new File("/www/wwwroot/upload/" + email);
         fileToZip(sourceFile);
     }
 

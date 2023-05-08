@@ -17,41 +17,41 @@
 <body>
 <div class="layui-form layuimini-form">
     <div class="layui-form-item">
-        <label class="layui-form-label required">用户名</label>
+        <label class="layui-form-label required">username</label>
         <div class="layui-input-block">
-            <input type="text" name="username" lay-verify="required" lay-reqtext="用户名不能为空" placeholder="请输入用户名" value="" class="layui-input">
-            <tip>填写自己管理账号的名称。</tip>
+            <input type="text" name="username" lay-verify="required" lay-reqtext="Username can not be empty" placeholder="please enter user name" value="" class="layui-input">
+            <tip>Fill in the name of your own management account。</tip>
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label required">用户类型</label>
+        <label class="layui-form-label required">user type</label>
         <div class="layui-input-block">
-            <input type="radio" name="type" value="0" title="前台" checked="">
-            <input type="radio" name="type" value="1" title="后台" checked="">
+            <input type="radio" name="type" value="0" title="user side" checked="">
+            <input type="radio" name="type" value="1" title="management side" checked="">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">密码</label>
+        <label class="layui-form-label">password</label>
         <div class="layui-input-block">
-            <input type="password" name="password" lay-verify="required" lay-reqtext="密码不能为空" placeholder="请输入密码" value="" class="layui-input">
+            <input type="password" name="password" lay-verify="required" lay-reqtext="password can not be blank" placeholder="please enter password" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label required">手机</label>
+        <label class="layui-form-label required">cell phone</label>
         <div class="layui-input-block">
-            <input type="number" name="cellphone" lay-verify="required" lay-reqtext="手机不能为空" placeholder="请输入手机" value="" class="layui-input">
+            <input type="number" name="cellphone" lay-verify="required" lay-reqtext="phone cannot be blank" placeholder="Please enter your mobile phone" value="" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">邮箱</label>
+        <label class="layui-form-label">Email</label>
         <div class="layui-input-block">
-            <input type="email" name="email" lay-verify="required" lay-reqtext="邮箱不能为空" placeholder="请输入邮箱" value="" class="layui-input">
+            <input type="email" name="email" lay-verify="required" lay-reqtext="E-mail can not be empty" placeholder="please input your email" value="" class="layui-input">
         </div>
     </div>
 
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">confirm save</button>
         </div>
     </div>
 </div>
@@ -73,8 +73,8 @@
             }).then(res=>{
                 layer.msg(res.msg);
                 if(res.code===200){
-                    parent.location.reload(); // 父页面刷新
-                    // 关闭弹出层
+                    parent.location.reload();
+
                     var iframeIndex = parent.layer.getFrameIndex(window.name);
                     parent.layer.close(iframeIndex);
                 }

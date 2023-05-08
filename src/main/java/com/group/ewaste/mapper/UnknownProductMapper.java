@@ -1,5 +1,6 @@
 package com.group.ewaste.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.group.ewaste.domain.UserBean;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface UnknownProductMapper {
+public interface UnknownProductMapper{
     @Insert("insert into unknow_device(brand,email)values(#{brand},#{email})")
     void insertUnknownDevice(@Param("brand") String brand, @Param("email") String password);
 }

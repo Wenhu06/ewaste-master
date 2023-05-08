@@ -92,10 +92,9 @@ public class CommonController
     @PostMapping("/upload")
     public AjaxResult uploadFile(MultipartFile file,@RequestParam(required = false) String username) throws Exception
     {
-        try
-        {
+
             // 上传文件路径
-            String filePath = "C:/Users/Administrator/Desktop/upload"+"/upload";
+            String filePath = RuoYiConfig.getProfile()+"/upload";
             // 上传并返回新文件名称
             String fileName = FileUploadUtils.upload(filePath, file);
             String url = serverConfig.getUrl() + fileName;
@@ -115,11 +114,7 @@ public class CommonController
             file1.setPath(filePath+"/"+fileName.replace("/profile/upload/",""));
             fileService.save(file1);
             return ajax;
-        }
-        catch (Exception e)
-        {
-            return AjaxResult.error(e.getMessage());
-        }
+
     }
 
 }

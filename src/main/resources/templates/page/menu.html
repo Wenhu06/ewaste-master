@@ -17,13 +17,13 @@
 <div class="layuimini-container">
     <div class="layuimini-main">
         <blockquote class="layui-elem-quote">
-            Layui的树形表格treeTable，支持异步加载(懒加载)、复选框联动、折叠状态记忆。<br>
+            Layui's tree table treeTable supports asynchronous loading (lazy loading), check box linkage, and folding state memory。<br>
             <a href="https://gitee.com/whvse/treetable-lay" target="_blank" class="layui-btn layui-btn-danger">treetable-lay</a>
         </blockquote>
         <div>
             <div class="layui-btn-group">
-                <button class="layui-btn" id="btn-expand">全部展开</button>
-                <button class="layui-btn layui-btn-normal" id="btn-fold">全部折叠</button>
+                <button class="layui-btn" id="btn-expand">expand all</button>
+                <button class="layui-btn layui-btn-normal" id="btn-fold">collapse all</button>
             </div>
             <table id="munu-table" class="layui-table" lay-filter="munu-table"></table>
         </div>
@@ -31,8 +31,8 @@
 </div>
 <!-- 操作列 -->
 <script type="text/html" id="auth-state">
-    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">Revise</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">delete</a>
 </script>
 
 <script src="../lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
@@ -55,23 +55,23 @@
             page: false,
             cols: [[
                 {type: 'numbers'},
-                {field: 'authorityName', minWidth: 200, title: '权限名称'},
-                {field: 'authority', title: '权限标识'},
-                {field: 'menuUrl', title: '菜单url'},
-                {field: 'orderNumber', width: 80, align: 'center', title: '排序号'},
+                {field: 'authorityName', minWidth: 200, title: 'permission name'},
+                {field: 'authority', title: 'Authority ID'},
+                {field: 'menuUrl', title: 'menu url'},
+                {field: 'orderNumber', width: 80, align: 'center', title: 'queue number'},
                 {
                     field: 'isMenu', width: 80, align: 'center', templet: function (d) {
                         if (d.isMenu == 1) {
-                            return '<span class="layui-badge layui-bg-gray">按钮</span>';
+                            return '<span class="layui-badge layui-bg-gray">button</span>';
                         }
                         if (d.parentId == -1) {
-                            return '<span class="layui-badge layui-bg-blue">目录</span>';
+                            return '<span class="layui-badge layui-bg-blue">Table of contents</span>';
                         } else {
-                            return '<span class="layui-badge-rim">菜单</span>';
+                            return '<span class="layui-badge-rim">menu</span>';
                         }
-                    }, title: '类型'
+                    }, title: 'type'
                 },
-                {templet: '#auth-state', width: 120, align: 'center', title: '操作'}
+                {templet: '#auth-state', width: 120, align: 'center', title: 'operate'}
             ]],
             done: function () {
                 layer.closeAll('loading');
@@ -86,15 +86,15 @@
             treetable.foldAll('#munu-table');
         });
 
-        //监听工具条
+
         table.on('tool(munu-table)', function (obj) {
             var data = obj.data;
             var layEvent = obj.event;
 
             if (layEvent === 'del') {
-                layer.msg('删除' + data.id);
+                layer.msg('delete' + data.id);
             } else if (layEvent === 'edit') {
-                layer.msg('修改' + data.id);
+                layer.msg('revise' + data.id);
             }
         });
     });

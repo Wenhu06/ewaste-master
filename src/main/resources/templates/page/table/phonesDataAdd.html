@@ -91,7 +91,7 @@
 
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">confirm save</button>
         </div>
     </div>
 </div>
@@ -120,8 +120,8 @@
             }).then(res=>{
                 layer.msg(res.msg);
                 if(res.code===200){
-                    parent.location.reload(); // 父页面刷新
-                    // 关闭弹出层
+                    parent.location.reload();
+
                     var iframeIndex = parent.layer.getFrameIndex(window.name);
                     parent.layer.close(iframeIndex);
                 }

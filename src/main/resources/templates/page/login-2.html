@@ -39,22 +39,22 @@
     <div></div>
     <div class="admin-login-background">
         <div class="admin-header">
-            <span>layuimini</span>
+            <span>eWaste</span>
         </div>
         <div class="layui-form">
             <div>
                 <i class="layui-icon layui-icon-username admin-icon"></i>
-                <input type="text" name="username" placeholder="请输入用户名" autocomplete="off" class="layui-input admin-input admin-input-username" value="">
+                <input type="text" name="username" placeholder="please enter user name" autocomplete="off" class="layui-input admin-input admin-input-username" value="">
             </div>
             <div>
                 <i class="layui-icon layui-icon-password admin-icon"></i>
-                <input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input admin-input" value="">
+                <input type="password" name="password" placeholder="please enter password" autocomplete="off" class="layui-input admin-input" value="">
             </div>
 <!--            <div>-->
 <!--                <input type="text" name="captcha" placeholder="请输入验证码" autocomplete="off" class="layui-input admin-input admin-input-verify" value="xszg">-->
 <!--                <img class="admin-captcha" width="90" height="30" src="../images/captcha.jpg">-->
 <!--            </div>-->
-            <button id="login" class="layui-btn admin-button" lay-submit="" lay-filter="login">登 陆</button>
+            <button id="login" class="layui-btn admin-button" lay-submit="" lay-filter="login">Log in</button>
         </div>
     </div>
 </div>
@@ -71,15 +71,17 @@
         $('#login').click(function(){
             console.log($("input[name='username']").val())
             if($("input[name='username']").val()==""){
-                return layer.msg('用户名不能为空');
+                return layer.msg('Username can not be empty');
             }
             if($("input[name='password']").val()===""){
-                return layer.msg('密码不能为空');
+                return layer.msg('password can not be blank');
             }
-            $.post('/loginIn',{
-                username:$("input[name='username']").val(),
-                password:$("input[name='password']").val()
-            }).then(res=>{
+            $.get('/loginIn?username='+$("input[name='username']").val()+"&password="+$("input[name='password']").val()
+            //     ,{
+            //     username:$("input[name='username']").val(),
+            //     password:$("input[name='password']").val()
+            // }
+            ).then(res=>{
                 if(res.code===200){
                 layer.msg(res.msg);
                     window.location.href="/index"

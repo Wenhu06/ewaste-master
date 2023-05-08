@@ -1,42 +1,54 @@
 {
   "homeInfo": {
-    "title": "首页",
+    "title": "front page",
     "href": "page/welcome-1.html?t=1"
   },
   "logoInfo": {
-    "title": "LAYUI MINI",
+    "title": "eWaste",
     "image": "images/logo.png",
     "href": ""
   },
   "menuInfo": [
     {
-      "title": "常规管理",
+      "title": "General management",
       "icon": "fa fa-address-book",
       "href": "",
       "target": "_self",
       "child": [
         {
-          "title": "用户管理",
+          "title": "User Management",
           "href": "page/user.html",
           "icon": "fa fa-window-maximize",
           "target": "_self"
         },
         {
-          "title": "设备管理",
+          "title": "device management",
           "href": "page/phonesData.html",
           "icon": "fa fa-gears",
           "target": "_self"
         },
         {
-          "title": "未知设备",
+          "title": "unknown devices",
           "href": "page/unknowDevice.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        },
+        {
+          "title": "file management",
+          "href": "page/file.html",
+          "icon": "fa fa-file-text",
+          "target": "_self"
+        },
+        {
+          "title": "feedback management",
+          "href": "page/feedBack.html",
           "icon": "fa fa-file-text",
           "target": "_self"
         }
       ]
     },
     {
-      "title": "组件管理",
+      "title": "component management",
       "icon": "fa fa-lemon-o",
       "href": "",
       "target": "_self",

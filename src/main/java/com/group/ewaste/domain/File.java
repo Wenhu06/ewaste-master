@@ -17,6 +17,7 @@ public class File implements Serializable {
     private String email;
     private String path;
     private String url;
+    private Integer isPay;
 
     public Long getId() {
         return id;
@@ -72,5 +73,13 @@ public class File implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Integer getIsPay() {
+        return isPay;
+    }
+
+    public void setIsPay(Integer isPay) {
+        this.isPay = isPay;
     }
 }

@@ -84,7 +84,7 @@ public class MailService {
             helper.setSubject(mailRequest.getSubject());
             helper.setText(mailRequest.getText(),true);
 
-            String filePath = System.getProperty("user.dir") + "/src/main/resources/voucher.png";
+            String filePath = System.getProperty("user.dir") + "/voucher.png";
             if (StringUtils.hasText(filePath)) {
                 FileSystemResource file = new FileSystemResource(new File(filePath));
 //                String fileName = filePath.substring(filePath.lastIndexOf(File.separator));

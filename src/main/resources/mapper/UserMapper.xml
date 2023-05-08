@@ -225,4 +225,9 @@
       `type` = #{type,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="getEmail" resultType="com.group.ewaste.domain.Email">
+    select email from user where username=#{username}
+  </select>
+
 </mapper>

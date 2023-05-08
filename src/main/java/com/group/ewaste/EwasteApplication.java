@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-@SpringBootApplication(scanBasePackages="com.group.ewaste")
+@SpringBootApplication
 @MapperScan("com.group.ewaste.mapper")
 @Configuration
 public class EwasteApplication {

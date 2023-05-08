@@ -1,6 +1,7 @@
 package com.group.ewaste.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.group.ewaste.domain.Email;
 import com.group.ewaste.domain.File;
 import com.group.ewaste.domain.User;
 import com.group.ewaste.domain.UserBean;
@@ -12,11 +13,14 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 @Mapper
+@Repository
 public interface UserMapper extends BaseMapper<User> {
-    @Select("SELECT * FROM user WHERE username = #{username} AND password = #{password}")
-    UserBean getInfo(@Param("username") String username, @Param("password") String password);
+    @Select("SELECT * FROM user WHERE username = #{username} AND password = #{password} and type =#{type}")
+    UserBean getInfo(@Param("username") String username, @Param("password") String password, @Param("type")String type);
 
 
     @Insert("insert into user(username,password,cellphone,email)values(#{username},#{password},#{cellphone},#{email})")
     void saveInfo(@Param("username") String username, @Param("password") String password, @Param("cellphone") String cellphone, @Param("email") String email);
+
+    public Email getEmail(String username);
 }
